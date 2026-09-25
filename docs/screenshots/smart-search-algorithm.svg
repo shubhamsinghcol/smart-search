@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Smart:Search ranking flow</title>
+  <desc id="desc">A bubble diagram showing query cleanup, note scoring, exponentiated coverage, strong-note selection, bounded feedback, score cutoff, native filters, and ranked cards.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <marker id="feedback-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/>
+    </marker>
+    <style>
+      .node { fill: #eef2ff; stroke: #6366f1; stroke-width: 2; }
+      .node.feedback { fill: #f5f3ff; stroke: #8b5cf6; }
+      .node.output { fill: #ecfdf5; stroke: #10b981; }
+      .label { font: 500 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; text-anchor: middle; }
+      .title { font: 600 25px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172033; }
+      .edge { fill: none; stroke: #475569; stroke-width: 2.5; marker-end: url(#arrow); }
+      .feedback-edge { fill: none; stroke: #7c3aed; stroke-width: 2.5; stroke-dasharray: 8 7; marker-end: url(#feedback-arrow); }
+      .note { font: 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #5b21b6; }
+    </style>
+  </defs>
+  <rect width="1200" height="650" fill="#ffffff"/>
+  <text class="title" x="48" y="48">Smart:Search ranking flow</text>
+
+  <!-- Main scoring flow -->
+  <path class="edge" d="M188 210 H272"/>
+  <path class="edge" d="M428 210 H512"/>
+  <path class="edge" d="M668 210 H752"/>
+  <path class="edge" d="M908 210 H992"/>
+  <path class="edge" d="M1050 291 C1042 345 1012 379 982 421"/>
+
+  <!-- Bounded feedback and final flow -->
+  <path class="edge" d="M920 500 H878"/>
+  <path class="edge" d="M718 500 H678"/>
+  <path class="edge" d="M518 500 H478"/>
+  <path class="edge" d="M318 500 H278"/>
+  <path class="feedback-edge" d="M850 425 C876 330 983 322 1035 284"/>
+  <text class="note" x="914" y="354">bounded feedback refines scores</text>
+
+  <circle class="node" cx="110" cy="210" r="78"/>
+  <text class="label" x="110" y="204"><tspan x="110">Natural-language</tspan><tspan x="110" dy="23">query</tspan></text>
+
+  <circle class="node" cx="350" cy="210" r="78"/>
+  <text class="label" x="350" y="204"><tspan x="350">Clean words</tspan><tspan x="350" dy="23">and concepts</tspan></text>
+
+  <circle class="node" cx="590" cy="210" r="78"/>
+  <text class="label" x="590" y="196"><tspan x="590">Score notes</tspan><tspan x="590" dy="22">BM25 + rarity</tspan><tspan x="590" dy="22">and phrase match</tspan></text>
+
+  <circle class="node" cx="830" cy="210" r="78"/>
+  <text class="label" x="830" y="190"><tspan x="830">Exponentiate</tspan><tspan x="830" dy="22">coverage²</tspan><tspan x="830" dy="22">push weak matches</tspan><tspan x="830" dy="22">down</tspan></text>
+
+  <circle class="node" cx="1070" cy="210" r="78"/>
+  <text class="label" x="1070" y="204"><tspan x="1070">Select strongest</tspan><tspan x="1070" dy="23">matching notes</tspan></text>
+
+  <circle class="node feedback" cx="1000" cy="500" r="78"/>
+  <text class="label" x="1000" y="482"><tspan x="1000">Find shared,</tspan><tspan x="1000" dy="22">high-value</tspan><tspan x="1000" dy="22">new words</tspan></text>
+
+  <circle class="node feedback" cx="798" cy="500" r="78"/>
+  <text class="label" x="798" y="482"><tspan x="798">Capped boost</tspan><tspan x="798" dy="22">to notes with</tspan><tspan x="798" dy="22">those words</tspan></text>
+
+  <circle class="node" cx="598" cy="500" r="78"/>
+  <text class="label" x="598" y="494"><tspan x="598">Apply score</tspan><tspan x="598" dy="23">cutoff</tspan></text>
+
+  <circle class="node" cx="398" cy="500" r="78"/>
+  <text class="label" x="398" y="482"><tspan x="398">Intersect with</tspan><tspan x="398" dy="22">Anki native</tspan><tspan x="398" dy="22">filters</tspan></text>
+
+  <circle class="node output" cx="198" cy="500" r="78"/>
+  <text class="label" x="198" y="494"><tspan x="198">Ranked</tspan><tspan x="198" dy="23">cards</tspan></text>
+
+  <text class="note" x="48" y="625">Scores are relevance heuristics, not probabilities. The feedback step cannot recruit unrelated notes on its own.</text>
+</svg>
