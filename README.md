@@ -20,13 +20,9 @@ The **Filters** field accepts regular Anki search terms such as `-flag:1` and is
 - Suppresses results below 15% of the top score. Scores are heuristics, not probabilities.
 - Does not modify notes, cards, or scheduling.
 
-## Optional semantic search
-
-The AnkiWeb package ships with semantic search disabled and without its third-party dependencies or model. Its code retains an optional semantic integration point, but semantic search is not currently part of the supported public install flow. The normal lexical search works without it.
-
 ## Compatibility and limits
 
-This add-on targets current Anki desktop builds. Search indexes the collection synchronously each time, which may pause the Browser for large collections. Long notes may exceed the embedding model's input limit if semantic search is enabled in a separate local setup.
+This add-on targets current Anki desktop builds. Search indexes the collection synchronously each time, which may pause the Browser for large collections.
 
 ## Development
 
