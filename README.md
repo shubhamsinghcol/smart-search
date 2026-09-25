@@ -1,4 +1,4 @@
-# Smart Relevance Search
+# Smart:Search
 
 An Anki Browser add-on that ranks notes by relevance to a natural-language query. The default release uses local lexical ranking and requires no external packages or model download.
 
@@ -30,17 +30,17 @@ This add-on targets current Anki desktop builds. Search indexes the collection s
 
 ## Development
 
-The add-on package is built from the runtime files in `smart_relevance_search/`. See [smart_relevance_search/README.md](smart_relevance_search/README.md) for implementation and validation notes. Tests are in `tests/`.
+The add-on package is built from the runtime files in `smart_relevance_search/`. The internal Anki add-on package folder remains `smart_relevance_search` for compatibility. See [smart_relevance_search/README.md](smart_relevance_search/README.md) for implementation and validation notes. Tests are in `tests/`.
 
 To build the AnkiWeb upload archive from the repository root:
 
 ```sh
 mkdir -p release
-(cd smart_relevance_search && zip -X -j ../release/smart-relevance-search.ankiaddon __init__.py engine.py semantic.py config.json)
+(cd smart_relevance_search && zip -X -j ../release/Smart-Search.ankiaddon __init__.py engine.py semantic.py config.json)
 ```
 
 The archive must contain the add-on files at its root; do not include the enclosing folder, `__pycache__`, backups, tests, or semantic dependencies. Then sign in to [AnkiWeb's shared add-ons page](https://ankiweb.net/shared/addons/), choose **Upload**, and upload the `.ankiaddon` file with the title, description, and compatibility details.
 
-To publish the source on GitHub, create an empty repository on GitHub, then connect this folder as its Git remote and push the `main` branch. No GitHub remote is configured in this checkout yet.
+The source repository is [Smart:Search on GitHub](https://github.com/shubhamsinghcol/smart-search). The repository URL uses `smart-search` because GitHub repository names use URL-safe slugs.
 
 No software license has been selected. Until one is added, the source is public for viewing, but reuse and redistribution are not granted.
