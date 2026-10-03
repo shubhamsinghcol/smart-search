@@ -8,7 +8,7 @@ Type a few things you remember. Smart:Search finds the cards that match and puts
 smart:Noncaseating granulomas + transmural inflammation + cobblestone mucosa
 ```
 
-![Normal search with zero results](https://raw.githubusercontent.com/shubhamsinghcol/smart-search/main/docs/screenshots/dumb-search-zero-hits.png)
+![Normal search with zero results](https://raw.githubusercontent.com/shubhamsinghcol/smart-search/main/docs/screenshots/dumb-search-zero-hits-top.png)
 
 ![Smart:Search ranked results](https://raw.githubusercontent.com/shubhamsinghcol/smart-search/main/docs/screenshots/smart-search-results.png)
 
